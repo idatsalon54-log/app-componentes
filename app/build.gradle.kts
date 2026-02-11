@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "pe.edu.idat.app_componentes"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "pe.edu.idat.app_componentes"
