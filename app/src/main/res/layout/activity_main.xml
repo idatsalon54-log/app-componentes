@@ -75,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@+id/etapellidos" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/rggenero"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -112,7 +112,7 @@
         android:layout_marginTop="16dp"
         android:text="@string/texthobbies"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toBottomOf="@+id/rggenero" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
