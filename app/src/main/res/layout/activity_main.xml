@@ -88,18 +88,18 @@
             android:text="@string/textmasculino" />
 
         <RadioButton
-            android:id="@+id/radioButton3"
+            android:id="@+id/rbfemenino"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="@string/textFemenino" />
 
         <RadioButton
-            android:id="@+id/radioButton4"
+            android:id="@+id/rbotros"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="RadioButton" />
+            android:text="@string/textotrogenero" />
     </RadioGroup>
 
     <TextView
@@ -107,7 +107,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/texthobbies"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
@@ -121,25 +121,25 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/cbfutbol"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="CheckBox" />
+            android:text="@string/textfutbol" />
 
         <CheckBox
-            android:id="@+id/checkBox2"
+            android:id="@+id/cbmusica"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="CheckBox" />
+            android:text="@string/textmusica" />
 
         <CheckBox
-            android:id="@+id/checkBox3"
+            android:id="@+id/cbotros"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="CheckBox" />
+            android:text="@string/textotrohobbies" />
     </LinearLayout>
 
     <TextView
@@ -147,12 +147,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text="@string/textestadocivil"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spestadocivil"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
@@ -160,32 +160,32 @@
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/swnotificacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Switch"
+        android:text="@string/textnotificacion"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spestadocivil" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnregistrar"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Button"
+        android:text="@string/textregistro"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+        app:layout_constraintTop_toBottomOf="@+id/swnotificacion" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnveriusuarios"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Button"
+        android:text="@string/textverusuarios"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/btnregistrar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
