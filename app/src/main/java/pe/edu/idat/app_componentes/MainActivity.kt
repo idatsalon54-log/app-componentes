@@ -1,5 +1,6 @@
 package pe.edu.idat.app_componentes
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -78,7 +79,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         }
     }
     fun verUsuarios(){
-
+        val intentLista = Intent(this,
+            ListaActivity::class.java).apply {
+                putExtra("listausuarios", listUsuario)
+        }
+        startActivity(intentLista)
     }
     fun registrarUsuario(){
         val infoUsuario = binding.etnombres.text.toString()+"-"+
