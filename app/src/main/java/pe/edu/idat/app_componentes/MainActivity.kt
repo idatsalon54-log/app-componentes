@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         val infoUsuario = binding.etnombres.text.toString()+"-"+
                 binding.etapellidos.text.toString()+"-"+
                 getGenero()+"-"+
-                listPreferencias.toArray().toString()+"-"+
+                listPreferencias.toTypedArray().contentToString()+"-"+
                 estadoCivil+"-"+
                 binding.swnotificacion.isChecked
         listUsuario.add(infoUsuario)

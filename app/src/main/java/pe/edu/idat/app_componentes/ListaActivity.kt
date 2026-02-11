@@ -1,7 +1,9 @@
 package pe.edu.idat.app_componentes
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.ArrayAdapter
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -22,9 +24,17 @@ class ListaActivity : AppCompatActivity(), View.OnClickListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        val listaUsuario = intent.getSerializableExtra(
+            "listausuarios") as ArrayList<String>
+        val adapter = ArrayAdapter(this,
+            android.R.layout.simple_list_item_1, listaUsuario)
+        binding.lvusuarios.adapter = adapter
+        binding.btnirregistro.setOnClickListener(this)
     }
 
     override fun onClick(p0: View?) {
-
+        val intentRegistro = Intent(this,
+            MainActivity::class.java)
+        startActivity(intentRegistro)
     }
 }
