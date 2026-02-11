@@ -2,6 +2,7 @@ package pe.edu.idat.app_componentes
 
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.CheckBox
 import androidx.activity.enableEdgeToEdge
@@ -9,8 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import pe.edu.idat.app_componentes.databinding.ActivityMainBinding
+import pe.edu.idat.app_componentes.utils.AppMensaje
+import pe.edu.idat.app_componentes.utils.TipoMensaje
 
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity(), View.OnClickListener,
+    AdapterView.OnItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
     private val listPreferencias = ArrayList<String>()
@@ -77,7 +81,41 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     }
     fun registrarUsuario(){
+        val infoUsuario = binding.etnombres.text.toString()+"-"+
+                binding.etapellidos.text.toString()+"-"+
+                getGenero()+"-"+
+                listPreferencias.toArray().toString()+"-"+
+                estadoCivil+"-"+
+                binding.swnotificacion.isChecked
+        listUsuario.add(infoUsuario)
+        AppMensaje.enviarMensaje(binding.root, "Usuario Registrado",
+            TipoMensaje.SUCCESSFULL)
+    }
 
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?,
+                                position: Int, p3: Long) {
+        estadoCivil = if(position > 0){
+            p0!!.getItemAtPosition(position).toString()
+        }else ""
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+
+    }
+
+    //Validar formulario
+    fun validarNombreApellido():Boolean{
+        var respuesta = true
+        if(binding.etnombres.text.toString().trim().isEmpty()){
+            binding.etnombres.isFocusableInTouchMode = true
+            binding.etnombres.requestFocus()
+            respuesta = false
+        }else if(binding.etapellidos.text.toString().trim().isEmpty()){
+            binding.etapellidos.isFocusableInTouchMode = true
+            binding.etapellidos.requestFocus()
+            respuesta = false
+        }
+        return respuesta
     }
 
 }
