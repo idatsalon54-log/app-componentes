@@ -15,4 +15,6 @@
     <string name="textestadocivil">Seleccione su estado civil:</string>
     <string name="textregistro">REGISTRAR USUARIO</string>
     <string name="textverusuarios">VER USUARIOS REGISTRADOS</string>
+    <string name="texttitulolistausuarios">LISTA DE USUARIOS REGISTRADOS</string>
+    <string name="textregresarregistro">REGISTRAR USUARIOS</string>
 </resources>
