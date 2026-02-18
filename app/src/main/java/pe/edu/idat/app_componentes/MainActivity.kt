@@ -45,9 +45,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         binding.cbfutbol.setOnClickListener(this)
         binding.cbmusica.setOnClickListener(this)
         binding.cbotros.setOnClickListener(this)
-
         binding.btnregistrar.setOnClickListener(this)
         binding.btnveriusuarios.setOnClickListener(this)
+        binding.spestadocivil.onItemSelectedListener = this
     }
 
     fun getGenero():String{
@@ -86,15 +86,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         startActivity(intentLista)
     }
     fun registrarUsuario(){
-        val infoUsuario = binding.etnombres.text.toString()+"-"+
-                binding.etapellidos.text.toString()+"-"+
-                getGenero()+"-"+
-                listPreferencias.toTypedArray().contentToString()+"-"+
-                estadoCivil+"-"+
-                binding.swnotificacion.isChecked
-        listUsuario.add(infoUsuario)
-        AppMensaje.enviarMensaje(binding.root, "Usuario Registrado",
-            TipoMensaje.SUCCESSFULL)
+        if(validarFomulario()){
+            val infoUsuario = binding.etnombres.text.toString()+"-"+
+                    binding.etapellidos.text.toString()+"-"+
+                    getGenero()+"-"+
+                    listPreferencias.toTypedArray().contentToString()+"-"+
+                    estadoCivil+"-"+
+                    binding.swnotificacion.isChecked
+            listUsuario.add(infoUsuario)
+            AppMensaje.enviarMensaje(binding.root, "Usuario Registrado",
+                TipoMensaje.SUCCESSFULL)
+        }
     }
 
     override fun onItemSelected(p0: AdapterView<*>?, p1: View?,
@@ -143,5 +145,28 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
             respuesta = true
         }
         return respuesta
+    }
+    fun validarFomulario(): Boolean{
+        var respuesta = false
+        var mensaje = ""
+        if(!validarNombreApellido()){
+            mensaje = "Nombres y apellidos obligatorios"
+            mensajeError(mensaje)
+        }else if(!validarGenero()){
+            mensaje = "Seleccione su género"
+            mensajeError(mensaje)
+        }else if(!validarEstadoCivil()){
+            mensaje = "Seleccione su estado civil"
+            mensajeError(mensaje)
+        }else if(!validarHobbies()){
+            mensaje = "Seleccione al menos un hobbie"
+            mensajeError(mensaje)
+        }else {
+            respuesta = true
+        }
+        return respuesta
+    }
+    fun mensajeError(mensaje: String){
+        AppMensaje.enviarMensaje(binding.root, mensaje, TipoMensaje.ERROR)
     }
 }
