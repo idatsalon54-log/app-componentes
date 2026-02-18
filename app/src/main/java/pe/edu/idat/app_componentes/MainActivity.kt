@@ -81,7 +81,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
     fun verUsuarios(){
         val intentLista = Intent(this,
             ListaActivity::class.java).apply {
-                putExtra("listausuarios", listUsuario)
+                putStringArrayListExtra("listausuarios", listUsuario)
         }
         startActivity(intentLista)
     }

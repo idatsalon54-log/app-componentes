@@ -24,8 +24,8 @@ class ListaActivity : AppCompatActivity(), View.OnClickListener {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val listaUsuario = intent.getSerializableExtra(
-            "listausuarios") as ArrayList<String>
+        val listaUsuario = intent.getStringArrayListExtra(
+            "listausuarios") ?: arrayListOf()
         val adapter = ArrayAdapter(this,
             android.R.layout.simple_list_item_1, listaUsuario)
         binding.lvusuarios.adapter = adapter
