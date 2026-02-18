@@ -122,5 +122,26 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
         }
         return respuesta
     }
-
+    fun validarGenero():Boolean{
+        var respuesta = true
+        if(binding.rggenero.checkedRadioButtonId == -1){
+            respuesta = false
+        }
+        return respuesta
+    }
+    fun validarEstadoCivil(): Boolean{
+        var respuesta = true
+        if(estadoCivil == ""){
+            respuesta = false
+        }
+        return respuesta
+    }
+    fun validarHobbies(): Boolean {
+        var respuesta = false
+        if(binding.cbfutbol.isChecked || binding.cbmusica.isChecked
+            || binding.cbotros.isChecked){
+            respuesta = true
+        }
+        return respuesta
+    }
 }
