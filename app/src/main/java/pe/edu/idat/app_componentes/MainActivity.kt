@@ -96,6 +96,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
             listUsuario.add(infoUsuario)
             AppMensaje.enviarMensaje(binding.root, "Usuario Registrado",
                 TipoMensaje.SUCCESSFULL)
+            setearControles()
         }
     }
 
@@ -169,4 +170,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener,
     fun mensajeError(mensaje: String){
         AppMensaje.enviarMensaje(binding.root, mensaje, TipoMensaje.ERROR)
     }
+
+    fun setearControles(){
+        listPreferencias.clear()
+        binding.etnombres.text.clear()
+        binding.etapellidos.text.clear()
+        binding.cbfutbol.isChecked = false
+        binding.cbmusica.isChecked = false
+        binding.cbotros.isChecked = false
+        binding.rggenero.clearCheck()
+        binding.swnotificacion.isChecked = false
+        binding.spestadocivil.setSelection(0)
+        binding.etnombres.isFocusableInTouchMode  =true
+        binding.etnombres.requestFocus()
+    }
+
 }
